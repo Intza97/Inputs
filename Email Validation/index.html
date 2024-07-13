@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+  <!--==================== METADATOS ====================-->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta name="description" content="Inputs">
+      <meta name="keywords" content="HTML-CSS-JS">
+      <meta name="author" content="Rocio Cuello">
+      
+      <!--==================== CSS ====================-->
+      <link rel="stylesheet" href="assets/css/style.css">
+
+      <!--==================== TITULO ====================-->
+      <title>Inputs | Email Validation</title>
+
+      <!--==================== ICONO DE PESTAÑA ====================-->
+      <link rel="icon" sizes="64x64" href="assets/img/favicon.webp"> 
+
+      
+      <!--==================== ICONO ====================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+  <body>
+    <form action="#">
+      <div class="input-box">
+        <input class="input" type="text" placeholder="Ingresa tu correo electrónico">
+        <i class="fas fa-envelope email-icon"></i>
+        <i class="fas fa-exclamation-circle error-icon"></i>
+        <i class="fas fa-check-circle passed-icon"></i>
+        <input class="button" type="submit" value="Verificar">
+      </div>
+      <p class="text"></p>
+    </form>
+    <!--==================== script ====================-->
+    <script>
+    const form = document.querySelector("form"),
+    eInput = form.querySelector(".input"),
+    text = form.querySelector(".text");
+    
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; 
+      form.classList.add("error");
+      form.classList.remove("valid");
+      if(eInput.value == ""){
+        text.innerText = "El correo no puede estar en blanco";
+      } else if (!eInput.value.match(pattern)) {
+        text.innerText = "Por favor, ingresa un correo electrónico válido";
+      } else {
+        form.classList.replace("error", "valid"); 
+        text.innerText = "Este es un correo electrónico válido";
+      }
+    });
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+  <!--==================== METADATOS ====================-->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta name="description" content="Inputs">
+      <meta name="keywords" content="HTML-CSS-JS">
+      <meta name="author" content="Rocio Cuello">
+      
+      <!--==================== CSS ====================-->
+      <link rel="stylesheet" href="assets/css/style.css">
+
+      <!--==================== TITULO ====================-->
+      <title>Inputs | Password Show Hide Button</title>
+
+      <!--==================== ICONO DE PESTAÑA ====================-->
+      <link rel="icon" sizes="64x64" href="assets/img/favicon.webp"> 
+      
+      <!--==================== ICONOS ====================-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    </head>
+    <body>
+       <div class="content">
+          <div class="lock">
+             <div class="fa fa-lock"></div>
+          </div>
+          <input type="password" placeholder="Ingrese su Contraseña" required>
+          <span class="show-hide">
+          <i class="fa fa-eye"></i>
+          </span>
+       </div>
+          <!--==================== script ====================-->
+       <script>
+          const pass_field = document.querySelector("input");
+          const show_btn = document.querySelector("i");
+          show_btn.addEventListener("click", function(){
+            if(pass_field.type === "password"){
+              pass_field.type = "text";
+              show_btn.classList.add("hide");
+            }else{
+              pass_field.type = "password";
+              show_btn.classList.remove("hide");
+            }
+          });
+       </script>
+  </body>
+</html>
