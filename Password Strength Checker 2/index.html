@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-  <!--==================== METADATOS ====================-->
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <meta name="description" content="Inputs">
-      <meta name="keywords" content="HTML-CSS-JS">
-      <meta name="author" content="Rocio Cuello">
-      
-      <!--==================== CSS ====================-->
-      <link rel="stylesheet" href="assets/css/style.css">
+<html lang="es">
+<head>
+   <!--==================== METADATOS ====================-->
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name="description" content="Inputs">
+   <meta name="keywords" content="HTML-CSS-JS">
+   <meta name="author" content="Rocio Cuello">
 
-      <!--==================== TITULO ====================-->
-      <title>Inputs | Password Strength Checker</title>
+   <!--==================== CSS ====================-->
+   <link rel="stylesheet" href="assets/css/style.css">
 
-      <!--==================== ICONO DE PESTAÑA ====================-->
-      <link rel="icon" sizes="64x64" href="assets/img/favicon.webp"> 
+   <!--==================== TITULO ====================-->
+   <title>Inputs | Password Strength Checker</title>
 
-    </head>
-
-  <body>
-    <div class="container">
+   <!--==================== ICONO DE PESTAÑA ====================-->
+   <link rel="icon" sizes="64x64" href="assets/img/favicon.webp"> 
+</head>
+<body>
+   <div class="container">
       <header>Indicador de Fortaleza<br> de Contraseña </header>
       <form action="#">
          <div class="field">
@@ -36,7 +34,7 @@
          <div class="text"></div>
       </form>
    </div>
-   <!--==================== script ====================-->
+   <!--==================== SCRIPT ====================-->
    <script>
       const indicator = document.querySelector(".indicator");
       const input = document.querySelector("input");
@@ -48,17 +46,17 @@
       let regExpWeak = /[a-z]/;
       let regExpMedium = /\d+/;
       let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
-   
+
       function trigger(){
          if(input.value != ""){
             indicator.style.display = "block";
             indicator.style.display = "flex";
-   
+
             let no = 0;
             if(input.value.length <= 3 && (input.value.match(regExpWeak) || input.value.match(regExpMedium) || input.value.match(regExpStrong))) no = 1;
             if(input.value.length >= 6 && ((input.value.match(regExpWeak) && input.value.match(regExpMedium)) || (input.value.match(regExpMedium) && input.value.match(regExpStrong)) || (input.value.match(regExpWeak) && input.value.match(regExpStrong)))) no = 2;
             if(input.value.length >= 6 && input.value.match(regExpWeak) && input.value.match(regExpMedium) && input.value.match(regExpStrong)) no = 3;
-   
+
             if(no == 1){
                weak.classList.add("active");
                text.style.display = "block";
@@ -102,6 +100,5 @@
          }
       }
    </script>
-   
-  </body>
+</body>
 </html>

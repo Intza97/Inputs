@@ -1,94 +1,91 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
+<html lang="es">
+<head>
   <!--==================== METADATOS ====================-->
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <meta name="description" content="Inputs">
-      <meta name="keywords" content="HTML-CSS-JS">
-      <meta name="author" content="Rocio Cuello">
-      
-      <!--==================== CSS ====================-->
-      <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Inputs">
+  <meta name="keywords" content="HTML-CSS-JS">
+  <meta name="author" content="Rocio Cuello">
 
-      <!--==================== TITULO ====================-->
-      <title>Inputs | Password and Confirm Password Validation</title>
+  <!--==================== CSS ====================-->
+  <link rel="stylesheet" href="assets/css/style.css">
 
-      <!--==================== ICONO DE PESTAÑA ====================-->
-      <link rel="icon" sizes="64x64" href="assets/img/favicon.webp"> 
+  <!--==================== TITULO ====================-->
+  <title>Inputs | Password and Confirm Password Validation</title>
 
-    </head>
-
-  <body>
-    <div class="container">
-      <header>Confirmar contraseña</header>
-      <form action="#">
-         <div class="error-text"></div>
-         <div class="field">
-            <input onkeyup="active()" id="pswrd_1" type="password" placeholder="Ingresar contraseña">
-         </div>
-         <div class="field">
-            <input onkeyup="active_2()" id="pswrd_2" disabled type="password" placeholder="Confirmar contraseña">
-            <div class="show">
-               SHOW
-            </div>
-         </div>
-         <button disabled>Verificar</button>
-      </form>
-   </div>
-         <!--==================== script ====================-->
-   <script>
-      const pswrd_1 = document.querySelector("#pswrd_1");
-      const pswrd_2 = document.querySelector("#pswrd_2");
-      const errorText = document.querySelector(".error-text");
-      const showBtn = document.querySelector(".show");
-      const btn = document.querySelector("button");
-      function active(){
-        if(pswrd_1.value.length >= 6){
-          btn.removeAttribute("disabled", "");
-          btn.classList.add("active");
-          pswrd_2.removeAttribute("disabled", "");
-        }else{
-          btn.setAttribute("disabled", "");
-          btn.classList.remove("active");
-          pswrd_2.setAttribute("disabled", "");
-        }
-      }
-      btn.onclick = function(){
-  if(pswrd_1.value != pswrd_2.value){
+  <!--==================== ICONO DE PESTAÑA ====================-->
+  <link rel="icon" sizes="64x64" href="assets/img/favicon.webp"> 
+</head>
+<body>
+  <div class="container">
+    <header>Confirmar contraseña</header>
+    <form action="#">
+      <div class="error-text"></div>
+      <div class="field">
+        <input onkeyup="active()" id="pswrd_1" type="password" placeholder="Ingresar contraseña">
+      </div>
+      <div class="field">
+        <input onkeyup="active_2()" id="pswrd_2" disabled type="password" placeholder="Confirmar contraseña">
+        <div class="show">
+        SHOW
+        </div>
+      </div>
+      <button disabled>Verificar</button>
+    </form>
+  </div>
+  <!--==================== SCRIPT ====================-->
+  <script>
+  const pswrd_1 = document.querySelector("#pswrd_1");
+  const pswrd_2 = document.querySelector("#pswrd_2");
+  const errorText = document.querySelector(".error-text");
+  const showBtn = document.querySelector(".show");
+  const btn = document.querySelector("button");
+  function active(){
+    if(pswrd_1.value.length >= 6){
+    btn.removeAttribute("disabled", "");
+    btn.classList.add("active");
+    pswrd_2.removeAttribute("disabled", "");
+    }else{
+    btn.setAttribute("disabled", "");
+    btn.classList.remove("active");
+    pswrd_2.setAttribute("disabled", "");
+    }
+  }
+  btn.onclick = function(){
+    if(pswrd_1.value != pswrd_2.value){
     errorText.style.display = "block";
     errorText.classList.remove("matched");
     errorText.textContent = "¡Error! Las contraseñas no coinciden";
     return false;
-  }else{
+    }else{
     errorText.style.display = "block";
     errorText.classList.add("matched");
     errorText.textContent = "¡Bien! Las contraseñas coinciden";
     return false;
+    }
   }
-}
-
-      function active_2(){
-        if(pswrd_2.value != ""){
-          showBtn.style.display = "block";
-          showBtn.onclick = function(){
-            if((pswrd_1.type == "password") && (pswrd_2.type == "password")){
-              pswrd_1.type = "text";
-              pswrd_2.type = "text";
-              this.textContent = "Ocultar";
-              this.classList.add("active");
-            }else{
-              pswrd_1.type = "password";
-              pswrd_2.type = "password";
-              this.textContent = "Mostrar";
-              this.classList.remove("active");
-            }
-          }
-        }else{
-          showBtn.style.display = "none";
-        }
-      }
-   </script>
-  </body>
+  function active_2(){
+    if(pswrd_2.value != ""){
+    showBtn.style.display = "block";
+    showBtn.onclick = function(){
+    if((pswrd_1.type == "password") && (pswrd_2.type == "password")){
+    pswrd_1.type = "text";
+    pswrd_2.type = "text";
+    this.textContent = "Ocultar";
+    this.classList.add("active");
+    }else{
+    pswrd_1.type = "password";
+    pswrd_2.type = "password";
+    this.textContent = "Mostrar";
+    this.classList.remove("active");
+    }
+    }
+    }else{
+    showBtn.style.display = "none";
+    }
+  }
+  </script>
+</body>
 </html>

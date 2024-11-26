@@ -1,36 +1,34 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
+<html lang="es">
+<head>
   <!--==================== METADATOS ====================-->
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <meta name="description" content="Inputs">
-      <meta name="keywords" content="HTML-CSS-JS">
-      <meta name="author" content="Rocio Cuello">
-      
-      <!--==================== CSS ====================-->
-      <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Inputs">
+  <meta name="keywords" content="HTML-CSS-JS">
+  <meta name="author" content="Rocio Cuello">
 
-      <!--==================== TITULO ====================-->
-      <title>Inputs | Input Text Wave Animation On Click</title>
+  <!--==================== CSS ====================-->
+  <link rel="stylesheet" href="assets/css/style.css">
 
-      <!--==================== ICONO DE PESTAÑA ====================-->
-      <link rel="icon" sizes="64x64" href="assets/img/favicon.webp"> 
+  <!--==================== TITULO ====================-->
+  <title>Inputs | Input Text Wave Animation On Click</title>
 
-    </head>
-
-  <body>
-    <div class="inputBox">
-      <input type="text" required>
-      <label>Nombre&nbsp;Completo</label>
+  <!--==================== ICONO DE PESTAÑA ====================-->
+  <link rel="icon" sizes="64x64" href="assets/img/favicon.webp"> 
+</head>
+<body>
+  <div class="inputBox">
+    <input type="text" required>
+    <label>Nombre&nbsp;Completo</label>
   </div>
-  <!--==================== script ====================-->
+  <!--==================== SCRIPT ====================-->
   <script>
-      let label = document.querySelector('label');
-      label.innerHTML = label.innerText.split('').map((letter, i) =>
-          `<span style="transition-delay:${i * 30}ms; filter: hue-rotate(${i * 10}deg);">${letter}</span>`
-      ).join('');
+  let label = document.querySelector('label');
+  label.innerHTML = label.innerText.split('').map((letter, i) =>
+  `<span style="transition-delay:${i * 30}ms; filter: hue-rotate(${i * 10}deg);">${letter}</span>`
+  ).join('');
   </script>
 </body>
 </html>
